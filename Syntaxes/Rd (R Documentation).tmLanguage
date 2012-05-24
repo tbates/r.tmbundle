@@ -14,7 +14,7 @@
 	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>
-	<string>Rd (R Documentation) copy</string>
+	<string>Rd (R Documentation)</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -309,6 +309,6 @@
 	<key>scopeName</key>
 	<string>text.tex.latex.rd</string>
 	<key>uuid</key>
-	<string>DC9B46E4-7A98-42C2-9487-BD28AB609D6D</string>
+	<string>80A00288-FE7E-4E66-B5BF-4948A2828203</string>
 </dict>
 </plist>
