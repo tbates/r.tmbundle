@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+osascript -e 'on run(theCode)' \
+		  -e 'tell application "R" to activate' \
+		  -e 'tell application "R" to cmd "a&lt;-knit('\''" &amp; (item 1 of theCode) &amp; "'\'')"' \
+		  -e 'tell application "R" to cmd "system(paste(\"open\", a))"' \
+		  -e 'end run' -- ${TM_FILEPATH}
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^~@k</string>
+	<key>name</key>
+	<string>knit this</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.r</string>
+	<key>uuid</key>
+	<string>E244AE0A-143B-4A98-A023-4FDC21E077CE</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
