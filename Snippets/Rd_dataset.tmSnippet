@@ -20,7 +20,7 @@ New York: Wiley.}
 \keyword{datasets}
 </string>
 	<key>name</key>
-	<string>Rd.dataset</string>
+	<string>Insert dataset Rd template</string>
 	<key>scope</key>
 	<string>source.rd</string>
 	<key>tabTrigger</key>
