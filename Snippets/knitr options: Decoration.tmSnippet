@@ -3,14 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>eval=${1|T,F|}</string>
+	<string>tidy=${1|T,F|}
+prompt=${1|F,T|}
+comment=${1|"##",NA|}
+highlight=${1|T,F|}
+size=${1|'normalsize'}
+background='${1:#F7F7F7}'</string>
 	<key>name</key>
-	<string>knitr options: evaluation</string>
+	<string>knitr options: Decoration</string>
 	<key>scope</key>
 	<string>source.R text.markdown</string>
 	<key>tabTrigger</key>
 	<string>knitr</string>
 	<key>uuid</key>
-	<string>53A2EFD5-4027-4F5C-8AD4-9961749EC207</string>
+	<string>10488C58-348B-48AD-92D5-6600F5929795</string>
 </dict>
 </plist>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>fig.path='${1:cache/}'
+fig.keep=${1|'high','none','all', 'first', 'last'|}
+fig.show=${1|'asis','hold', 'animate'|}
+dev='${1|pdf,png,bmp,postscript,svg,jpeg,pictex, tiff, win.metafile, cairo_pdf, cairo_ps, CairoJPEG, CairoPNG, CairoPS, CairoPDF, CairoSVG, CairoTIFF, Cairo_pdf, Cairo_png, Cairo_ps, Cairo_svg,quartz_pdf, quartz_png, quartz_jpeg, quartz_tiff, quartz_gif, quartz_psd, quartz_bmp|}'
+dev.args=${1|NULL,"bg='yellow'"|}
+fig.ext=${1|NULL,"png"|}
+dpi=${1|72,96,300|}
+fig.width=${1|7,3|}
+fig.height=${1|7,3|}
+
+resize.width
+resize.height: (NULL; character) the width and height to be used in \resizebox{}{} in LaTeX; these two options are not needed unless you want to resize tikz graphics because there is no natural way to do it; however, according to tikzDevice authors, tikz graphics is not meant to be resized to maintain consistency in style with other texts in LaTeX; if only one of them is NULL, ! will be used (read the documentation of graphicx if you do not understand this)
+fig.align: ('default'; character) alignment of figures in the output document (possible values are left, right and center; default is not to make any alignment adjustments)
+fig.cap: (NULL; character) figure caption to be used in a figure environment in LaTeX (in \caption{}); if NULL or NA, it will be ignored, otherwise a figure environment will be used for the plots in the chunk (output in \begin{figure} and \end{figure})
+fig.scap: (NULL; character) short caption; if NULL, all the words before . or ; or : will be used as a short caption; if NA, it will be ignored
+fig.lp: ('fig:'; character) label prefix for the figure label to be used in \label{}; the actual label is made by concatenating this prefix and the chunk label, e.g. the figure label for &lt;&lt;foo-plot&gt;&gt;= will be fig:foo-plot by default
+fig.pos: (''; character) a character string for the figure position arrangement to be used in \begin{figure}[fig.pos]
+external: (TRUE; logical) whether to externalize tikz graphics (pre-compile tikz graphics to PDF); it is only used for the tikz() device in the tikzDevice package (i.e., when dev='tikz') and it can save time for LaTeX compilation
+sanitize: (FALSE; character) whether to sanitize tikz graphics (escape special LaTeX characters); see documentation in the tikzDevice package
+
+
+source.R text.markdown
+knitr options: Results
+# http://yihui.name/knitr/demo/output/
+
+
+
+</string>
+	<key>name</key>
+	<string>knitr options: Plots</string>
+	<key>scope</key>
+	<string>source.R text.markdown</string>
+	<key>tabTrigger</key>
+	<string>knitr</string>
+	<key>uuid</key>
+	<string>CCC216DD-A548-40BE-B0A0-4F5F06B34A58</string>
+</dict>
+</plist>

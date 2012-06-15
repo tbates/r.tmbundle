@@ -3,14 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>eval=${1|T,F|}</string>
+	<string>cache=${1|F,T|}
+cache.path='${1:cache/}'
+prompt=${1|F,T|}
+dependson=${1|NULL,"depended-on cached chunks"|}
+autodep=${1|F,T|}</string>
 	<key>name</key>
-	<string>knitr options: evaluation</string>
+	<string>knitr options: Cache</string>
 	<key>scope</key>
 	<string>source.R text.markdown</string>
 	<key>tabTrigger</key>
 	<string>knitr</string>
 	<key>uuid</key>
-	<string>53A2EFD5-4027-4F5C-8AD4-9961749EC207</string>
+	<string>76138A52-3811-440A-9F63-21C2B7146DF2</string>
 </dict>
 </plist>

@@ -3,14 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>eval=${1|T,F|}</string>
+	<string>echo=${1|T,F,2:3|}
+results=${1|markup,asis,hide|}
+warning=${1|T,F|}
+error=${1|T,F|}
+message=${1|T,F|}
+split=${1|T,F|}
+include=${1|T,F|}</string>
 	<key>name</key>
-	<string>knitr options: evaluation</string>
+	<string>knitr options: Results</string>
 	<key>scope</key>
 	<string>source.R text.markdown</string>
 	<key>tabTrigger</key>
 	<string>knitr</string>
 	<key>uuid</key>
-	<string>53A2EFD5-4027-4F5C-8AD4-9961749EC207</string>
+	<string>BE07FE35-BC04-4F09-918C-2042FBC868BA</string>
 </dict>
 </plist>
