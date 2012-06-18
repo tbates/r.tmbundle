@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>echo=${1|T,F,\${1:2:3}|}</string>
+	<key>name</key>
+	<string>knitr options:</string>
+	<key>scope</key>
+	<string>source.R text.markdown</string>
+	<key>tabTrigger</key>
+	<string>knitr</string>
+	<key>uuid</key>
+	<string>B31D9626-A839-4568-8227-6FF28617BCAC</string>
+</dict>
+</plist>
