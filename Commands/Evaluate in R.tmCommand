@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+if [ -z "$TM_SELECTED_TEXT" ]; then
+	echo
+	cat | R --vanilla --slave --no-readline --encoding=UTF-8
+else
+	cat | R --vanilla --slave --no-readline --encoding=UTF-8
+	exit_replace_text
+fi
+</string>
+	<key>keyEquivalent</key>
+	<string>^C</string>
+	<key>name</key>
+	<string>Evaluate in R</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>afterInput</string>
+	<key>uuid</key>
+	<string>28E18640-97D2-4587-A47F-9D64789FC72D</string>
+</dict>
+</plist>
