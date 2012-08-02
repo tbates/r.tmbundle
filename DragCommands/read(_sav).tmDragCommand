@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+echo -n "df &lt;- read.spss(\"$TM_DROPPED_FILEPATH\", use.value.labels=T, to.data.frame=T, max.value.labels=Inf, trim.factor.names=F)"
+</string>
+	<key>draggedFileExtensions</key>
+	<array>
+		<string>sav</string>
+		<string>￿</string>
+	</array>
+	<key>name</key>
+	<string>read(.sav)</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.r</string>
+	<key>uuid</key>
+	<string>3531B877-7939-49DB-AB33-D8DCA66D5838</string>
+</dict>
+</plist>
