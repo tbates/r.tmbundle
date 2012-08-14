@@ -11,7 +11,7 @@ autodep=${1|F,T|}</string>
 	<key>name</key>
 	<string>knitr options: Cache</string>
 	<key>scope</key>
-	<string>source.R text.markdown</string>
+	<string>source.r; text.markdown</string>
 	<key>tabTrigger</key>
 	<string>knitr</string>
 	<key>uuid</key>

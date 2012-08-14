@@ -34,7 +34,7 @@ knitr options: Results
 	<key>name</key>
 	<string>knitr options: Plots</string>
 	<key>scope</key>
-	<string>source.R text.markdown</string>
+	<string>source.r; text.markdown</string>
 	<key>tabTrigger</key>
 	<string>knitr</string>
 	<key>uuid</key>

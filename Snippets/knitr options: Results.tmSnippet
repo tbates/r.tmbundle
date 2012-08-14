@@ -13,7 +13,7 @@ include=${1|T,F|}</string>
 	<key>name</key>
 	<string>knitr options: Results</string>
 	<key>scope</key>
-	<string>source.R text.markdown</string>
+	<string>source.r; text.markdown</string>
 	<key>tabTrigger</key>
 	<string>knitr</string>
 	<key>uuid</key>

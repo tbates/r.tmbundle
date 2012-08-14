@@ -29,7 +29,7 @@ osascript -e 'on run(theCode)' \
 	<key>outputLocation</key>
 	<string>newWindow</string>
 	<key>scope</key>
-	<string>source.r</string>
+	<string>source.r; text.markdown</string>
 	<key>uuid</key>
 	<string>E244AE0A-143B-4A98-A023-4FDC21E077CE</string>
 	<key>version</key>
