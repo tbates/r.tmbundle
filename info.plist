@@ -53,6 +53,7 @@
 			<string>A59DA3DA-866C-4A05-9CAF-D986D67B4B33</string>
 			<string>D782BAF8-D4D7-47FA-9BA1-38222FD26571</string>
 			<string>B970D389-FD53-46ED-BA8B-6D3F880328F8</string>
+			<string>CFF8DB09-7446-4A1A-9178-77155760CCE2</string>
 			<string>------------------------------------</string>
 			<string>D8605B14-1865-4315-B7E0-7CF6E22AB363</string>
 			<string>------------------------------------</string>
@@ -62,6 +63,22 @@
 		</array>
 		<key>submenus</key>
 		<dict>
+			<key>CFF8DB09-7446-4A1A-9178-77155760CCE2</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>53A2EFD5-4027-4F5C-8AD4-9961749EC207</string>
+					<string>76138A52-3811-440A-9F63-21C2B7146DF2</string>
+					<string>10488C58-348B-48AD-92D5-6600F5929795</string>
+					<string>CCC216DD-A548-40BE-B0A0-4F5F06B34A58</string>
+					<string>BE07FE35-BC04-4F09-918C-2042FBC868BA</string>
+					<string>B31D9626-A839-4568-8227-6FF28617BCAC</string>
+					<string>E244AE0A-143B-4A98-A023-4FDC21E077CE</string>
+					<string>45335070-7D5B-45E4-98BC-8F5F5702B6E0</string>
+				</array>
+				<key>name</key>
+				<string>Reproducible Research</string>
+			</dict>
 			<key>076C9388-66AC-43C1-B2EC-B456C1749878</key>
 			<dict>
 				<key>items</key>
@@ -176,6 +193,7 @@
 					<string>99E59A8E-A7DC-4CB0-AA51-6305921D3411</string>
 					<string>C666D732-9E4D-49C7-BEEC-BC20590414BF</string>
 					<string>E3EAFF15-1B8D-4E74-8649-2A3CADC0A119</string>
+					<string>28E18640-97D2-4587-A47F-9D64789FC72D</string>
 				</array>
 				<key>name</key>
 				<string>Execute Selection/Document In R and</string>
@@ -225,22 +243,10 @@
 					<string>CE9299F4-0D31-46CE-8B50-434623A4F75A</string>
 					<string>65AA7BA9-8482-462E-A99E-DCD5886BCCBA</string>
 					<string>E13584CA-948E-4AF7-912D-86C4688D4A7C</string>
-
 				</array>
 				<key>name</key>
 				<string>Rd Documentation</string>
 			</dict>
-			<key>3135D80E-C1EE-4386-A0E1-97B43199B0F2</key>
-			<dict>
-				<key>items</key>
-				<array>
-					<string>E244AE0A-143B-4A98-A023-4FDC21E077CE</string>
-					<string>53A2EFD5-4027-4F5C-8AD4-9961749EC207</string>
-				</array>
-				<key>name</key>
-				<string>Reproducible Research</string>
-			</dict>
-			
 			<key>C70D177F-E5D6-4628-807D-C9EFADECB050</key>
 			<dict>
 				<key>items</key>
