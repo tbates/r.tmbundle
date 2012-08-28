@@ -13,9 +13,9 @@ $input  = $_ENV[TM_SELECTED_TEXT]; // available vars
 $aLines = explode("\n", $input);
 $l = count($aLines);
 foreach ($aLines as $key =&gt; $line) {
-	$line = trim ($line);
+	$line = trim($line);
 	if (strpos($line, $knitrComment) === FALSE) {
-			$o[] = $knitrComment. $line;
+			$o[] = $knitrComment . $line;
 	} else {
 		$o[] = trim ($line, "$knitrComment" ); //trim ends of existing #`
 	}
@@ -23,7 +23,7 @@ foreach ($aLines as $key =&gt; $line) {
 echo implode("\n", $o);
 ?&gt;</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>line</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
