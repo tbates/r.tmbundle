@@ -9,8 +9,12 @@
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 osascript -e 'on run(theCode)' \
+          -e 'set oldDel to AppleScript\'s text item delimiters' \
+          -e 'set AppleScript\'s text item delimiters to {" "}' \
+          -e 'set theCode to theCode as string' \
+          -e 'set AppleScript\'s text item delimiters to oldDel' \
 		  -e 'tell application "R" to activate' \
-		  -e 'tell application "R" to cmd "a&lt;-knit('\''" &amp; (item 1 of theCode) &amp; "'\'')"' \
+		  -e 'tell application "R" to cmd "a&lt;-knit('\''" &amp; (theCode) &amp; "'\'')"' \
 		  -e 'tell application "R" to cmd "system(paste(\"open\", a))"' \
 		  -e 'end run' -- ${TM_FILEPATH}
 </string>

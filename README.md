@@ -1,6 +1,12 @@
+# r.tmbundle
+
+This bundle provides support for the [R](http://www.r-project.org) statistical package and programming language. 
+
+The bundle provides the ability to flexibly execute scripts, and considerable support for writing scripts, including snippets and commands.
+
 # Installation
 
-You can install this bundle in TextMate by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
+Install this bundle in TextMate 2 by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you when new releases are available.
 
 # General
 
