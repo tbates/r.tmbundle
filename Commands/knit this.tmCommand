@@ -7,16 +7,19 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+# http://stackoverflow.com/questions/301039/how-can-i-escape-white-space-in-a-bash-loop-list
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 
 osascript -e 'on run(theCode)' \
-          -e 'set oldDel to AppleScript\'s text item delimiters' \
-          -e 'set AppleScript\'s text item delimiters to {" "}' \
-          -e 'set theCode to theCode as string' \
-          -e 'set AppleScript\'s text item delimiters to oldDel' \
-		  -e 'tell application "R" to activate' \
-		  -e 'tell application "R" to cmd "a&lt;-knit('\''" &amp; (theCode) &amp; "'\'')"' \
-		  -e 'tell application "R" to cmd "system(paste(\"open\", a))"' \
+          -e 'set cmdText to "a &lt;- knit(\"" &amp; theCode &amp; "\")" ' \
+          -e 'tell application "R"' \
+	      -e 'cmd cmdText' \
+		  -e 'cmd "system(paste(\"open \", \"\\\"\", a, \"\\\"\", sep=\"\"))"' \
+	      -e 'end tell' \
 		  -e 'end run' -- ${TM_FILEPATH}
+
+IFS=$SAVEIFS
 </string>
 	<key>input</key>
 	<string>none</string>
@@ -29,9 +32,9 @@ osascript -e 'on run(theCode)' \
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
-	<string>html</string>
+	<string>text</string>
 	<key>outputLocation</key>
-	<string>newWindow</string>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.r; text.markdown</string>
 	<key>uuid</key>
