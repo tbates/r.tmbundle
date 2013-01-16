@@ -9,9 +9,10 @@
 require ENV['TM_SUPPORT_PATH'] + "/lib/escape.rb";
 text = STDIN.read
 text = `export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100; pbpaste` if text.empty?
-text.gsub!(/(^\s+|\s+$)/,"")
-text.gsub!(/\s{1,}/," ")
-print "${1:${2:x} &lt;- }c("
+text.gsub!(/(^([\&gt;\s]*\[[0-9]+\])?\s+|[&gt;\s]+$)/,"") # trim leading and trailing space and [1]
+text.gsub!(/\s{1,}/," ") # 1 or more spaces-&gt; 1 space
+
+print "${1:${2:x} &lt;- }c(" # print the snippet code
 out = Array.new
 $LFlag = ''
 text.split.each{|b|
@@ -33,15 +34,23 @@ print ")"
 	<string>none</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^~c</string>
 	<key>name</key>
 	<string>Create Vector from Selection</string>
-	<key>output</key>
-	<string>insertAsSnippet</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
 	<key>scope</key>
 	<string>source.r, source.rd.console</string>
 	<key>uuid</key>
 	<string>F61688AA-C298-4D58-A9DE-87891797B2F9</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
