@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Symbol List (Rd Documentation)</string>
+	<string>Symbol List (Rd Documentation section)</string>
 	<key>scope</key>
 	<string>keyword.other.section.rd</string>
 	<key>settings</key>
