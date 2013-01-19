@@ -5,18 +5,28 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>echo -en 'require(${1:"${2:`"$TM_BUNDLE_SUPPORT"/bin/insert_package_name.sh`}"})${0:}'</string>
+	<string>#!/usr/bin/env bash
+
+echo -en 'require(${1:"${2:`"$TM_BUNDLE_SUPPORT"/bin/insert_package_name.sh`}"})${0:}'</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>name</key>
 	<string>Load Library using “require”</string>
-	<key>output</key>
-	<string>insertAsSnippet</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceSelection</string>
 	<key>scope</key>
 	<string>source.r, source.rd.console</string>
 	<key>tabTrigger</key>
 	<string>req</string>
 	<key>uuid</key>
 	<string>C2ADF348-D6FE-45B5-8BCC-A62B912A881B</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
