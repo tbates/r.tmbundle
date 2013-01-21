@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#[[ -z "$TM_SELECTED_TEXT" ]] &amp;&amp; echo "Please select a function definition" &amp;&amp; #exit_show_tool_tip
+	<string>#!/usr/bin/env bash
 
 echo "dummy &lt;- function() {" &gt; /tmp/TM_Rtidy_func.R
 cat &gt;&gt; /tmp/TM_Rtidy_func.R
@@ -69,15 +69,23 @@ fi
 	<string>document</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
 	<string>Tidy (removes all comments!)</string>
-	<key>output</key>
-	<string>replaceSelectedText</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
 	<key>scope</key>
 	<string>source.r -source.r.rd.console</string>
 	<key>uuid</key>
 	<string>3A526F78-B82D-41BD-9799-CA5F846401DC</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

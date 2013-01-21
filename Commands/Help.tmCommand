@@ -5,7 +5,8 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>
+	<string>#!/usr/bin/env bash
+
 # clean unused file
 rm -f "$TM_BUNDLE_SUPPORT/help.index"
 rm -f "$TM_BUNDLE_SUPPORT/helpshort.index"
@@ -24,13 +25,21 @@ html_footer
 </string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>name</key>
 	<string>Help</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.r -source.rd.console -source.rapp-console</string>
 	<key>uuid</key>
 	<string>8A8B6803-AF20-47EC-9382-62E1EBA76B4A</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

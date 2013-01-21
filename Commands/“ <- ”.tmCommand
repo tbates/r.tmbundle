@@ -5,7 +5,8 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>FLAG=$(echo -en "$TM_CURRENT_LINE" | perl -e '$_=&lt;&gt;;m/.*?( $)/;print 1 if defined($1)')
+	<string>#!/usr/bin/env bash
+FLAG=$(echo -en "$TM_CURRENT_LINE" | perl -e '$_=&lt;&gt;;m/.*?( $)/;print 1 if defined($1)')
 if [ -z "$FLAG" ]; then
 	echo -n " &lt;- "
 else
@@ -13,15 +14,23 @@ else
 fi</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>^-</string>
 	<key>name</key>
 	<string>“ &lt;- ”</string>
-	<key>output</key>
-	<string>afterSelectedText</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>atCaret</string>
 	<key>scope</key>
 	<string>source.r, source.rd.console</string>
 	<key>uuid</key>
 	<string>06BD4251-25D5-4BA0-99BC-5D3061E64128</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
