@@ -9,17 +9,13 @@
 	<key>settings</key>
 	<dict>
 		<key>foldingIndentedBlockIgnore</key>
-		<string>^(?!$)</string>
+		<string>^[\t ]+(?=(#|$))</string>
 		<key>foldingIndentedBlockStart</key>
-		<string>^#+\s+</string>
+		<string>^#+\s+.*$(?!#)</string>
 		<key>foldingStartMarker</key>
-		<string>(?x)
-		(^[^#]*(\([^\)]*$|\{\s*$)
-		)</string>
+		<string>(?x)(^[^#]*(\([^\)]*$|\{\s*$))</string>
 		<key>foldingStopMarker</key>
-		<string>(?x)
-		((^\s*\)|^\s*\})
-		)</string>
+		<string>(?x)(^\s*\)|^\s*\})</string>
 	</dict>
 	<key>uuid</key>
 	<string>88425650-DA1A-44DF-98E8-D37EA091ACA0</string>
