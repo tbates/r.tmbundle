@@ -8,10 +8,6 @@
 	<string>source.r</string>
 	<key>settings</key>
 	<dict>
-		<key>foldingIndentedBlockIgnore</key>
-		<string>^[\t ]+(?=(#|$))</string>
-		<key>foldingIndentedBlockStart</key>
-		<string>^#+\s+.*$(?!#)</string>
 		<key>foldingStartMarker</key>
 		<string>(?x)(^[^#]*(\([^\)]*$|\{\s*$))</string>
 		<key>foldingStopMarker</key>
