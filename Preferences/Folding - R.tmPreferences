@@ -11,7 +11,7 @@
 		<key>foldingIndentedBlockIgnore</key>
 		<string>^[\t ]+(?=(#|$))</string>
 		<key>foldingIndentedBlockStart</key>
-		<string>^#+\s+.*$(?!#)</string>
+		<string>^#+\s+.*(?!#)$</string>
 		<key>foldingStartMarker</key>
 		<string>(?x)(^[^#]*(\([^\)]*$|\{\s*$))</string>
 		<key>foldingStopMarker</key>
