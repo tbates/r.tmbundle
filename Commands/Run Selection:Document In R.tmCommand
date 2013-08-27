@@ -8,6 +8,9 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+cd "${TM_PROJECT_DIRECTORY:-${TM_DIRECTORY:-$HOME}}"
 
 #only for Mac OSX 10.4 X11
 OS=$(uname -r | perl -pe 's/(\d+)\..*/$1/')
