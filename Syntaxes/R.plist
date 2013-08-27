@@ -46,7 +46,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(#') *((@)(aliases|export|return|param|rdname|examples|seealso|references|export|examples)( +([^ ]+))?)(.*)$</string>
+			<string>^(#') *((@)(aliases|export|import|return|param|rdname|examples|seealso|references|export|examples)( +([^ ]+))?)(.*)$</string>
 			<key>name</key>
 			<string>meta.roxygen.rd</string>
 		</dict>
