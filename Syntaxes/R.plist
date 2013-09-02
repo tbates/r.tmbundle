@@ -46,7 +46,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(#') *((@)(aliases|export|import|return|param|rdname|examples|seealso|references|export|examples)( +([^ ]+))?)(.*)$</string>
+			<string>^(#') *((@)(aliases|title|description|details|export|import|return|param|rdname|examples|seealso|references|export|examples)( +([^ ]+))?)(.*)$</string>
 			<key>name</key>
 			<string>meta.roxygen.rd</string>
 		</dict>
@@ -85,9 +85,38 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(\code)({)(\link)({)([^}]*)(}})</string>
+			<string>(\\code)({)(\\link)({)([^}]*)(}})</string>
 			<key>name</key>
 			<string>meta.roxygen.fun.rd</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.misc.r</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.rd</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link.hyperlink</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.rd</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\\url)(\{)([^}]*)(\})</string>
+			<key>name</key>
+			<string>meta.link.roxygen.rd</string>
 		</dict>
 		<dict>
 			<key>captures</key>
