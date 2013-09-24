@@ -6,13 +6,13 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env bash
-
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 if [ -z "$TM_SELECTED_TEXT" ]; then
 	echo
 	cat | R --vanilla --slave --no-readline --encoding=UTF-8
 else
 	cat | R --vanilla --slave --no-readline --encoding=UTF-8
-	exit_replace_text
+	# exit_replace_text
 fi
 </string>
 	<key>input</key>
