@@ -21,7 +21,17 @@ osascript -e 'on run(theCode)' \
 		  -e 'tell application "R" to cmd (item 1 of theCode)' \
 		  -e 'end run' -- "$rawText" "$curDir"
 
-open "txmt://open?line=$(($TM_LINE_NUMBER+1))&amp;column=1000000" &amp;</string>
+if [ "$TM_LINE_NUMBER" != "" ]; then
+	open "txmt://open?line=$(($TM_LINE_NUMBER+1))&amp;column=1000000" &amp;
+elif [[ $TM_SELECTION =~ [1-9][0-9]*:?[0-9]*-([1-9][0-9]*):?[0-9]* ]]; then
+	 # Regular Selection
+	open "txmt://open?line=$((${BASH_REMATCH[1]}+1))&amp;column=1000000" &amp;
+elif [[ $TM_SELECTION =~ [1-9][0-9]*:?[0-9]*x([1-9][0-9]*):?[0-9]* ]]; then 
+	# Block (option) selection
+	open "txmt://open?line=$((${BASH_REMATCH[1]}+1))&amp;column=1000000" &amp;
+else 
+	open "txmt://open"
+fi</string>
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
