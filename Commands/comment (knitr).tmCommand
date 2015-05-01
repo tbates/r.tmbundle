@@ -27,7 +27,7 @@ echo implode("\n", $o);
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~@/</string>
+	<string>@`</string>
 	<key>name</key>
 	<string>knitr: comment</string>
 	<key>outputCaret</key>
