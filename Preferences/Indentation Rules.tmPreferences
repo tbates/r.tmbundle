@@ -9,23 +9,7 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>(?x)
-	    ^ (.* \*/)? \s*
-	    (
-	        (\})         |
-	        (\)[;,])     |
-	        (\][;,])     |
-	        (else:)      |
-	        ((end(if|for(each)?|while|switch));)
-	    )
-	</string>
-		<key>increaseIndentPattern</key>
-		<string>(?x)
-	    (   \{ (?! .* \} ) .*
-	    |   array\(
-	    |   (\[)
-	    |   ((else)?if|else|for(each)?|while|switch) .* :
-	    )   \s* (/[/*] .*)? $</string>
+		<string>^\s*\}</string>
 		<key>indentNextLinePattern</key>
 		<string>^\s*(repeat|else|(((else\s+)?if|for|while)\s*\(.+\)))</string>
 		<key>unIndentedLinePattern</key>
