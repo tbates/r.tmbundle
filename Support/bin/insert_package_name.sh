@@ -1,7 +1,7 @@
 
 "$TM_BUNDLE_SUPPORT"/bin/askRhelperDaemon.sh "@getInstalledPackages()"
 
-cat "/tmp/textmate_Rhelper_out" | sort -f | ruby18 -e '
+cat "/tmp/textmate_Rhelper_out" | sort -f | "${TM_RUBY:-/usr/bin/ruby}" -e '
 	isDIALOG2 = ! ENV["DIALOG"].match(/2$/).nil?
 	require File.join(ENV["TM_SUPPORT_PATH"], "lib/ui.rb")
 	require File.join(ENV["TM_SUPPORT_PATH"], "lib/exit_codes.rb")

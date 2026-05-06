@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby18 -KU
+#!/usr/bin/env ruby -KU
 
 ###################################
 #

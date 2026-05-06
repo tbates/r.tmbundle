@@ -13,7 +13,7 @@ if [ -z "$RPID" ]; then
 			mkfifo "$PIPE"
 		fi
 	fi
-	ruby18 RhelperDaemon.rb &> /dev/null &
+	"${TM_RUBY:-/usr/bin/ruby}" RhelperDaemon.rb &> /dev/null &
 	SAFECNT=0
 	while [ 1 ]
 	do

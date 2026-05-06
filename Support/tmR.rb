@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby18
+#!/usr/bin/env ruby
 #
 # RMate v0.95, 2012-03-07.
 # Copied, by Charilaos Skiadas, from RubyMate by Sune Foldager.
