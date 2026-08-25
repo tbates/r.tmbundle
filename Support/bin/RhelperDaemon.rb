@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -KU
+#!/usr/bin/env ruby -Eutf-8
 
 ###################################
 #
