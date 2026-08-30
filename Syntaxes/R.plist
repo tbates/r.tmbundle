@@ -413,7 +413,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>@(param|field|slot)\s+([a-zA-Z0-9_.]+)</string>
+					<string>(@(?:param|field|slot))\s+([a-zA-Z0-9_.]+)</string>
 				</dict>
 				<dict>
 					<key>match</key>
