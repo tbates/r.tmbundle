@@ -413,11 +413,11 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(@(?:param|field|slot))\s+([a-zA-Z0-9_.]+)</string>
+					<string>(@(?:param|field|slot|prop))\s+([a-zA-Z0-9_.]+)</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>@[a-zA-Z]+</string>
+					<string>@(?:importClassesFrom|importMethodsFrom|inheritDotParams|exportS3Method|inheritSection|evalNamespace|exportPattern|inheritParams|exportMethod|rawNamespace|description|exportClass|templateVar|describeIn|examplesIf|importFrom|includeRmd|references|useDynLib|R6method|encoding|examples|keywords|template|aliases|backref|concept|details|docType|example|include|inherit|returns|section|seealso|author|evalRd|export|family|format|import|method|rdname|return|source|field|order|param|rawRd|title|usage|eval|name|noMd|noRd|note|prop|slot|md)\b</string>
 					<key>name</key>
 					<string>keyword.other.roxygen.tag.r</string>
 				</dict>
