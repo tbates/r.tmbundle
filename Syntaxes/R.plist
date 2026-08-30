@@ -346,14 +346,31 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?=^\s*#'\s*@\b|\A|^\s*(?!#'))</string>
+			<string>(?=^\s*#'\s*@\b|^\s*(?!#'))</string>
 			<key>name</key>
 			<string>meta.roxygen.examples.r</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#r-core</string>
+					<key>begin</key>
+					<string>^\s*(#')</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.roxygen.r</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>$</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#r-core</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -370,7 +387,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?=^\s*#'\s*@examples\b|^\s*^(?!#'))</string>
+			<string>(?=^\s*#'\s*@(?:examples|examplesIf)\b|^\s*(?!#'))</string>
 			<key>name</key>
 			<string>text.html.markdown.roxygen.r</string>
 			<key>patterns</key>
@@ -400,7 +417,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\(code|eqn|link|dontrun)\{[^}\n]*\}</string>
+					<string>\\(code|eqn|link|dontrun)\{[^}\n]*\}</string>
 					<key>name</key>
 					<string>markup.raw.inline.roxygen</string>
 				</dict>
