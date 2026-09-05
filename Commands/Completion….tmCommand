@@ -65,9 +65,10 @@ fi
 
 [[ $RD -eq 0 ]] &amp;&amp; LOCAL=$(cat | grep '&lt;\- *function' | perl -pe 's/\t//g;s/ *(.*?) *&lt;\-.*/$1|OK/' | sort | egrep -i "^${WORD//./\\.}")
 
-#get suggestions
-"$TM_BUNDLE_SUPPORT"/bin/askRhelperDaemon.sh "@getCompletionList('$WORD',T)"
-RES=$(cat "$RhelperAnswer")
+#completion candidates come from the static index (no helper daemon needed)
+. "$TM_BUNDLE_SUPPORT"/bin/completion_index.sh
+if ! tm_ensure_completion_index >/dev/null; then echo "Could not build completion index (no Rscript found)" &amp;&amp; exit_show_tool_tip; fi
+RES=$(tm_complete_from_index "${WORD//./\\.}")
 RES=$(printf '%s\n' "$LOCAL"; printf '%s' "$RES")
 export TM_COMPLETION_TEXT="$RES"
 
