@@ -9,7 +9,7 @@
 # Tab trigger "here": insert POSIX path of the current document, R-quoted.
 path = ENV["TM_FILEPATH"].to_s
 exit 0 if path.empty?
-print '"' + path.gsub('\\', '\\\\').gsub('"', '\\"') + '"'
+print '"' + path.gsub(/[\\"]/) { |c| "\\" + c } + '"'
 </string>
 	<key>fallbackInput</key>
 	<string>word</string>

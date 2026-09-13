@@ -30,10 +30,17 @@ module Roxygen
 		def break_or_wrap
 			require ENV["TM_SUPPORT_PATH"] + "/lib/escape.rb"
 
-			line = ENV["TM_CURRENT_LINE"].to_s.chomp
-			index = ENV["TM_LINE_INDEX"].to_i
-			index = [index, line.length].min
-			wrap_col = (ENV["TM_COLUMNS"] || ENV["TM_WRAP_COLUMN"] || 80).to_i
+      line = ENV["TM_CURRENT_LINE"].to_s.chomp
+       # TM_LINE_INDEX is UTF-8 bytes; Ruby 2 indexes by character.
+       n = ENV["TM_LINE_INDEX"].to_i
+       index = if n <= 0
+           0
+       elsif n >= line.bytesize
+           line.length
+       else
+           line.byteslice(0, n).length
+       end
+      wrap_col = (ENV["TM_COLUMNS"] || ENV["TM_WRAP_COLUMN"] || 80).to_i
 
 			m = prefix_match(line)
 			unless m
