@@ -94,7 +94,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=\{[rR])\s*([^,\s}][^,\n}]*)(?=\s*,|\s*\})</string>
+					<string>(?&lt;=\{[rR])\s*([^,\s}=][^,\n}=]*)(?=\s*,|\s*\})</string>
 					<key>name</key>
 					<string>entity.name.function.knitr</string>
 				</dict>
