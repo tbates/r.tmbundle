@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>. "$TM_BUNDLE_SUPPORT"/bin/completion_index.sh
+if tm_refresh_completion_index; then exit 0; else echo "Refresh failed (no working Rscript found)"; exit 206; fi</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Refresh Completion Index</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.r</string>
+	<key>uuid</key>
+	<string>0464E8C6-9B3D-4D8B-97F5-EAA840691DB3</string>
+</dict>
+</plist>

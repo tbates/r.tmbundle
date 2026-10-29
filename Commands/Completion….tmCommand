@@ -65,17 +65,19 @@ fi
 
 [[ $RD -eq 0 ]] &amp;&amp; LOCAL=$(cat | grep '&lt;\- *function' | perl -pe 's/\t//g;s/ *(.*?) *&lt;\-.*/$1|OK/' | sort | egrep -i "^${WORD//./\\.}")
 
-#get suggestions
-"$TM_BUNDLE_SUPPORT"/bin/askRhelperDaemon.sh "@getCompletionList('$WORD',T)"
-RES=$(cat "$RhelperAnswer")
-RES=$(echo -e "$LOCAL"; echo -en "$RES")
+#completion candidates come from the static index (no helper daemon needed)
+. "$TM_BUNDLE_SUPPORT"/bin/completion_index.sh
+if ! tm_ensure_completion_index >/dev/null; then echo "Could not build completion index (no Rscript found)" &amp;&amp; exit_show_tool_tip; fi
+RES=$(tm_complete_from_index "${WORD//./\\.}")
+RES=$(printf '%s\n' "$LOCAL"; printf '%s' "$RES")
+export TM_COMPLETION_TEXT="$RES"
 
 "${TM_RUBY:-/usr/bin/ruby}" -- &lt;&lt;-SCRIPT 2&gt; /dev/null
 require File.join(ENV["TM_SUPPORT_PATH"], "lib/exit_codes.rb")
 require "#{ENV["TM_SUPPORT_PATH"]}/lib/ui"
 word = "$WORD"
 wordorg = "$WORDORG"
-text = "$RES"
+text = ENV["TM_COMPLETION_TEXT"].to_s
 funs = text.gsub(/\n{2,}/,"\n").split("\n")
 
 rdfuns = funs.select {|x| x =~ /\|OK$/ }
@@ -89,23 +91,23 @@ rdfuns.each_index do |i|
 	end
 end
 
-funs.delete_if {|x| x.match('[,\- ]') }
+funs.delete_if {|x| x.gsub(/\t.*/,"").match('[,\- ]') }
 funs.delete_if {|x| x.match('matrices.*rgl') }
 funs.delete_if {|x| x.match('^\s*$') }
 if "$RD" == "1"
 	funs.collect! do |x|
 		if rdfuns.include?(x.gsub(/\t.*/,""))
-			x= "%s 　 …%s…" % x.split("\t")
+			x= "%s 　 …%s…" % x.split("\t").values_at(0,1)
 		else
-			x= "%s 　 {%s}" % x.split("\t")
+			x= "%s 　 {%s}" % x.split("\t").values_at(0,1)
 		end
 	end
 else
 	funs.collect! do |x|
 		if rdfuns.include?(x.gsub(/\t.*/,""))
-			x= "%s 　 …%s…" % x.split("\t")
+			x= "%s 　 …%s…" % x.split("\t").values_at(0,1)
 		else
-			x= "%s 　 [%s]" % x.split("\t")
+			x= "%s 　 [%s]" % x.split("\t").values_at(0,1)
 		end
 	end
 end
@@ -128,7 +130,7 @@ end
 if (functions.size == 1 &amp;&amp; (ENV['R_AUTOCOMPLETE'].to_i == 1 || ENV['TM_R_AUTOCOMPLETE'].to_i == 1))
 	function = functions.first
 else
-	isDIALOG2 = ! ENV["DIALOG"].match(/2$/).nil?
+	isDIALOG2 = ! ENV["DIALOG"].to_s.match(/2$/).nil?
 	if isDIALOG2
 		fn = []
 		functions.each do |f|
@@ -144,9 +146,9 @@ else
 end
 # TextMate.exit_discard if function.empty?
 if ENV['TM_SELECTED_TEXT'].nil? or ENV['TM_SELECTED_TEXT'].empty?
-  print function.gsub!(/\s.*/,"")[wordorg.length..-1]
+  print function.gsub(/\s.*/,"")[wordorg.length..-1]
 else
-  print function.gsub!(/\s.*/,"")
+  print function.gsub(/\s.*/,"")
 end
 SCRIPT
 </string>

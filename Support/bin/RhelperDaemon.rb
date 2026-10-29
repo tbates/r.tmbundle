@@ -9,29 +9,49 @@
 
 require 'pty'
 require 'fileutils'
+require 'shellwords'
 
 $pipe_in = "/tmp/textmate_Rhelper_in"
 $pipe_out = "/tmp/textmate_Rhelper_out"
 $pipe_status = "/tmp/textmate_Rhelper_status"
 $pipe_console = "/tmp/textmate_Rhelper_console"
 
-# check for valid TM_REXEC; if not use "R"
-if ENV['TM_REXEC'] != nil
-	check = %x{which #{ENV['TM_REXEC']}}
-	if check == ""
-		%x{osascript -e 'tell app "TextMate" to display dialog "Please check TM_REXEC shell variable! “#{ENV['TM_REXEC']}” in PATH not found! Using “R” instead." buttons "OK" default button "OK"'}
-		ENV['TM_REXEC'] = nil
+# Locate the R binary. An explicit TM_REXEC wins; otherwise search PATH plus
+# the usual install locations, since the helper's shell PATH often misses
+# /usr/local/bin, /opt/homebrew/bin, etc. and bare "R" then fails with
+# "command not found", leaving callers to time out with "No RESULT".
+R_GUESS_PATHS = [
+	'/usr/local/bin/R',
+	'/opt/homebrew/bin/R',
+	'/opt/R/bin/R',
+	'/Library/Frameworks/R.framework/Resources/bin/R'
+].freeze
+
+def find_r_binary
+	if ENV['TM_REXEC'] && !ENV['TM_REXEC'].empty?
+		r = ENV['TM_REXEC'].include?('/') ? ENV['TM_REXEC'] : %x{command -v #{ENV['TM_REXEC'].shellescape}}.strip
+		return r if r && !r.empty? && File.executable?(r)
+		%x{osascript -e 'tell app "TextMate" to display dialog "TM_REXEC “#{ENV['TM_REXEC']}” not found. Searching for R instead." buttons "OK" default button "OK"'}
 	end
+	found = %x{command -v R}.strip
+	return found unless found.empty?
+	R_GUESS_PATHS.find { |p| File.executable?(p) }
 end
 
-cmd = "#{(ENV['TM_REXEC']==nil) ? 'R' : ENV['TM_REXEC']} -q --vanilla --encoding=UTF-8 --TMRHelperDaemon 2&> '#{$pipe_console}'"
+R_BIN = find_r_binary
+if R_BIN.nil?
+	%x{osascript -e 'tell app "TextMate" to display dialog "Could not find the R binary. Set TM_REXEC to its full path (e.g. /usr/local/bin/R) in TextMate preferences." buttons "OK" default button "OK"'}
+	exit 206
+end
+
+cmd = "#{R_BIN.shellescape} -q --vanilla --encoding=UTF-8 --TMRHelperDaemon 2&> #{$pipe_console.shellescape}"
 
 FileUtils.rm_f($pipe_out)
 FileUtils.rm_f($pipe_status)
 FileUtils.rm_f($pipe_console)
 
-%x{echo -en "TM_RHelper" > /tmp/textmate_Rhelper_status}
-%x{echo -en "TM_RHelper" > /tmp/textmate_Rhelper_out}
+File.write($pipe_status, 'TM_RHelper')
+File.write($pipe_out, 'TM_RHelper')
 
 PTY.spawn(cmd) { |r,w,pid|
 
@@ -63,7 +83,7 @@ PTY.spawn(cmd) { |r,w,pid|
 	
 	w.puts "source('RhelperScript.R')"
 
-	%x{echo -en "STARTED" > '#{$pipe_status}'}
+	File.write($pipe_status, 'STARTED')
 
 	while TRUE
 		task = $fin.gets.chomp
